@@ -169,7 +169,7 @@
 
         // Master Product Catalog
         const products = [
-            { id: 1, brand: 'Minimalist', name: '10% Niacinamide Face Serum', category: 'Serum', mrp: 599, deal: 399, discount: 33, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80' },
+            { id: 1, brand: 'Minimalist', name: '10% Niacinamide Face Serum', category: 'Serum', mrp: 599, deal: 399, discount: 33, image: 'https://sfycdn.speedsize.com/56385b25-4e17-4a9a-9bec-c421c18686fb/beminimalist.co/cdn/shop/files/Nia10New.png?crop=center&height=1260&v=1721398127&width=840' },
             { id: 2, brand: 'The Derma Co', name: '1% Hyaluronic Sunscreen Aqua Gel', category: 'Sunscreen', mrp: 499, deal: 299, discount: 40, image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=400&q=80' },
             { id: 3, brand: 'Dot & Key', name: 'Ceramide Barrier Repair Moisturizer', category: 'Moisturizer', mrp: 599, deal: 399, discount: 33, image: 'https://images.unsplash.com/photo-1608248597261-833258657640?auto=format&fit=crop&w=400&q=80' },
             { id: 4, brand: 'Conscious Chemist', name: 'Salicylic Acid Pore Cleanser', category: 'Cleanser', mrp: 350, deal: 245, discount: 30, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80' },
@@ -255,8 +255,8 @@
                                 <div class="card-container p-4 flex flex-col justify-between hover:scale-[1.01] transition-transform">
                                     <div>
                                         <!-- Product Image Banner -->
-                                        <div class="relative w-full h-44 mb-3 rounded-lg overflow-hidden border border-slate bg-butter">
-                                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover">
+                                        <div class="relative w-full h-44 mb-3 rounded-lg overflow-hidden border border-slate bg-butter flex items-center justify-center">
+                                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-contain p-2">
                                             <span class="absolute top-2 right-2 badge-discount">${p.discount}% OFF</span>
                                         </div>
                                         <p class="text-xs font-black tracking-wider uppercase text-slate opacity-70">${p.brand}</p>
@@ -329,7 +329,7 @@
 
                     <!-- Selected Product Summary -->
                     <div class="p-3 bg-lavender border-2 border-slate rounded-lg flex items-center gap-3">
-                        <img src="${selectedProductForCheckout.image}" class="w-14 h-14 object-cover rounded border border-slate">
+                        <img src="${selectedProductForCheckout.image}" class="w-14 h-14 object-contain rounded border border-slate bg-white">
                         <div>
                             <p class="text-xs font-black uppercase">${selectedProductForCheckout.brand}</p>
                             <p class="text-xs font-bold leading-tight">${selectedProductForCheckout.name}</p>
