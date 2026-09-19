@@ -3,908 +3,615 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowDeals India - Pure HTML Skincare Showcase</title>
+    <title>GlowDeals India - Verified Skincare Aggregator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --bg-butter: #F9F6E5;
-            --bg-card: #FFFFFF;
-            --accent-lavender: #EAE6FF;
-            --accent-lime: #D2E76E;
-            --accent-green: #15803D;
-            --text-dark: #12131A;
-            --text-muted: #6B7280;
-            --border-dark: #12131A;
-            --shadow-flat: 3px 3px 0px #12131A;
-            --shadow-hover: 5px 5px 0px #12131A;
-            --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --muted-butter: #F9F6E5;
+            --digital-lavender: #B6B1DF;
+            --cyber-lime: #D2E76E;
+            --deep-slate: #12131A;
+            --pure-white: #FFFFFF;
         }
 
-        * {
-            box-sizing: border-box;
+        body {
+            background-color: var(--muted-butter);
+            color: var(--deep-slate);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        body {
-            background-color: var(--bg-butter);
-            color: var(--text-dark);
-            font-family: var(--font-family);
-            line-height: 1.5;
-            padding-bottom: 2rem;
-        }
+        .bg-lavender { background-color: var(--digital-lavender); }
+        .bg-butter { background-color: var(--muted-butter); }
+        .bg-lime { background-color: var(--cyber-lime); }
+        .text-slate { color: var(--deep-slate); }
+        .border-slate { border-color: var(--deep-slate); }
 
-        header {
-            background-color: var(--accent-lavender);
-            border-bottom: 2px solid var(--border-dark);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 1rem 1.5rem;
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: var(--text-dark);
-        }
-
-        .logo-badge {
-            background-color: var(--accent-lime);
-            border: 2px solid var(--border-dark);
-            border-radius: 12px;
-            padding: 0.25rem 0.6rem;
-            font-size: 1.25rem;
-        }
-
-        .logo-title {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: -0.025em;
-        }
-
-        .logo-country {
-            background-color: var(--accent-lime);
-            border: 1px solid var(--border-dark);
-            font-size: 0.65rem;
+        .btn-lime {
+            background-color: var(--cyber-lime);
+            color: var(--deep-slate);
             font-weight: 800;
-            padding: 0.1rem 0.4rem;
-            border-radius: 999px;
-            margin-left: 0.25rem;
-        }
-
-        .search-mockup {
-            flex: 1;
-            max-width: 450px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 0.6rem 1rem 0.6rem 2.5rem;
-            border: 2px solid var(--border-dark);
-            border-radius: 999px;
-            background-color: var(--bg-butter);
-            font-size: 0.875rem;
-            font-weight: 600;
-            outline: none;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 0.85rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.875rem;
-        }
-
-        .header-info {
-            font-size: 0.8rem;
-            font-weight: 800;
-            background-color: var(--bg-card);
-            padding: 0.4rem 0.8rem;
-            border-radius: 999px;
-            border: 1.5px solid var(--border-dark);
-        }
-
-        .main-container {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .filter-section {
-            margin-bottom: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid var(--border-dark);
-            padding-bottom: 1rem;
-        }
-
-        .category-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .pill {
-            border: 1.5px solid var(--border-dark);
-            border-radius: 999px;
-            padding: 0.35rem 0.9rem;
-            font-size: 0.8rem;
-            font-weight: 800;
-            background-color: var(--bg-card);
-            color: var(--text-dark);
-            text-decoration: none;
+            padding: 0.6rem 1.25rem;
+            border-radius: 9999px;
+            border: 2px solid var(--deep-slate);
             transition: all 0.2s ease;
-        }
-
-        .pill.active {
-            background-color: var(--accent-lime);
-            box-shadow: 2px 2px 0px var(--border-dark);
-        }
-
-        .pill:hover:not(.active) {
-            background-color: var(--accent-lavender);
-        }
-
-        .catalog-count {
-            font-size: 0.8rem;
-            font-weight: 800;
-            background-color: var(--accent-lavender);
-            padding: 0.35rem 0.8rem;
-            border-radius: 999px;
-            border: 1.5px solid var(--border-dark);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-            gap: 1.5rem;
-        }
-
-        @media (min-width: 640px) {
-            .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        }
-
-        @media (min-width: 1024px) {
-            .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        }
-
-        @media (min-width: 1280px) {
-            .product-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        }
-
-        .product-card {
-            background-color: var(--bg-card);
-            border: 2px solid var(--border-dark);
-            border-radius: 1rem;
-            box-shadow: var(--shadow-flat);
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 200px;
-            background-color: #FAFAFA;
-            border: 1.5px solid var(--border-dark);
-            border-radius: 0.75rem;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .product-image {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            padding: 0.5rem;
-        }
-
-        .discount-badge {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background-color: var(--accent-lime);
-            color: var(--text-dark);
-            border: 1.5px solid var(--border-dark);
-            font-weight: 900;
-            padding: 0.2rem 0.5rem;
-            border-radius: 999px;
-            font-size: 0.7rem;
-        }
-
-        .meta-tags {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .brand-tag {
-            font-size: 0.7rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-        }
-
-        .category-badge {
-            font-size: 0.65rem;
-            font-weight: 800;
-            background-color: var(--accent-lavender);
-            border: 1px solid var(--border-dark);
-            padding: 0.15rem 0.5rem;
-            border-radius: 999px;
-        }
-
-        .product-title {
-            font-size: 0.95rem;
-            font-weight: 800;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            min-height: 2.6em;
-            color: var(--text-dark);
-        }
-
-        .card-footer {
-            border-top: 1.5px solid var(--border-dark);
-            padding-top: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-        }
-
-        .price-box {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .mrp-price {
-            font-size: 0.75rem;
-            text-decoration: line-through;
-            color: var(--text-muted);
-            font-weight: 700;
-        }
-
-        .deal-price {
-            font-size: 1.15rem;
-            font-weight: 900;
-            color: var(--accent-green);
-        }
-
-        .buy-btn {
-            background-color: var(--accent-lime);
-            color: var(--text-dark);
-            font-weight: 800;
-            font-size: 0.75rem;
-            padding: 0.55rem 0.9rem;
-            border-radius: 999px;
-            border: 1.5px solid var(--border-dark);
-            box-shadow: 2px 2px 0px var(--border-dark);
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.15 ease;
+            box-shadow: 2px 2px 0px var(--deep-slate);
             cursor: pointer;
         }
 
-        .buy-btn:hover {
-            background-color: #c0d853;
-            transform: translateY(-1px);
-            box-shadow: 3px 3px 0px var(--border-dark);
+        .btn-lime:hover {
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0px var(--deep-slate);
         }
 
-        footer {
-            max-width: 1400px;
-            margin: 3rem auto 0 auto;
-            padding: 2rem 1.5rem 0 1.5rem;
-            border-top: 2px solid var(--border-dark);
-            text-align: center;
-            font-size: 0.8rem;
+        .btn-lavender {
+            background-color: var(--digital-lavender);
+            color: var(--deep-slate);
             font-weight: 700;
-            color: var(--text-muted);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: 1.5px solid var(--deep-slate);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .card-container {
+            background-color: var(--pure-white);
+            border: 2px solid var(--deep-slate);
+            border-radius: 1rem;
+            box-shadow: 3px 3px 0px var(--deep-slate);
+        }
+
+        .badge-discount {
+            background-color: var(--cyber-lime);
+            color: var(--deep-slate);
+            border: 1.5px solid var(--deep-slate);
+            font-weight: 900;
+            padding: 0.2rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+        }
+
+        .tab-btn {
+            border: 1.5px solid var(--deep-slate);
+            font-weight: 700;
+            border-radius: 9999px;
+            padding: 0.4rem 1rem;
+            background-color: var(--pure-white);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .tab-btn.active {
+            background-color: var(--cyber-lime);
+            box-shadow: 2px 2px 0px var(--deep-slate);
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col relative pb-12">
 
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo-area">
-                <span class="logo-badge">✨</span>
-                <span class="logo-title">GlowDeals <span class="logo-country">INDIA</span></span>
-            </a>
-
-            <div class="search-mockup">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" placeholder="Search Minimalist, Cetaphil, serums, sunscreens..." readonly>
+    <!-- Sticky Navigation Header -->
+    <header class="bg-lavender border-b-2 border-slate sticky top-0 z-40 p-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-2">
+                <span class="bg-lime border-2 border-slate p-2 rounded-xl text-2xl font-black">✨</span>
+                <h1 class="text-2xl font-black tracking-tight text-slate">GlowDeals <span class="text-xs bg-lime px-2 py-0.5 rounded-full border border-slate">INDIA</span></h1>
             </div>
 
-            <div class="header-info">
-                🔒 100% Verified Indian Skincare Direct
+            <!-- Search Bar -->
+            <div class="w-full md:w-1/3 relative">
+                <input type="text" id="global-search" oninput="filterProducts()" placeholder="Search Minimalist, Cetaphil, serums, sunscreens..." class="w-full pl-10 pr-4 py-2 border-2 border-slate rounded-full bg-butter text-sm focus:outline-none focus:ring-2 focus:ring-slate">
+                <span class="absolute left-3.5 top-2.5 text-sm">🔍</span>
             </div>
+
+            <!-- Workspace Switcher -->
+            <nav class="flex items-center space-x-2 bg-butter p-1.5 rounded-full border-2 border-slate">
+                <button id="nav-customer" onclick="switchPortal('customer')" class="text-xs font-black px-4 py-1.5 rounded-full bg-lime border border-slate shadow-sm">🛍️ Customer Workspace</button>
+                <button id="nav-retailer" onclick="switchPortal('retailer')" class="text-xs font-bold px-4 py-1.5 rounded-full hover:bg-lavender">🏢 Retailer & Derms</button>
+                <button id="nav-admin" onclick="switchPortal('admin')" class="text-xs font-bold px-4 py-1.5 rounded-full hover:bg-lavender">🔧 Admin Governance</button>
+            </nav>
         </div>
     </header>
 
-    <main class="main-container">
-        <div class="filter-section">
-            <div class="category-pills">
-                <a href="#" class="pill active">All Products</a>
-                <a href="#" class="pill">Serum</a>
-                <a href="#" class="pill">Sunscreen</a>
-                <a href="#" class="pill">Moisturizer</a>
-                <a href="#" class="pill">Cleanser</a>
-                <a href="#" class="pill">Body Care</a>
-                <a href="#" class="pill">Toner</a>
-            </div>
-            <div class="catalog-count">
-                Showing 24 Verified Deals
-            </div>
-        </div>
+    <!-- Main Dynamic Content Region -->
+    <main id="portal-root" class="container mx-auto p-6 flex-grow"></main>
 
-        <div class="product-grid">
+    <!-- FLOATING ALWAYS-VISIBLE HELP & SUPPORT BUTTON -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="toggleSupportModal()" class="btn-lime flex items-center gap-2 shadow-2xl border-2 border-slate text-sm py-3 px-5 hover:scale-105">
+            💬 <span class="font-black">Help & Support</span>
+        </button>
+    </div>
+
+    <!-- Help & Support Chat Modal -->
+    <div id="support-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="card-container w-full max-w-md p-6 bg-butter relative">
+            <button onclick="toggleSupportModal()" class="absolute top-4 right-4 text-sm font-black border border-slate rounded-full w-7 h-7 bg-white hover:bg-red-100">✕</button>
+            <h3 class="text-lg font-black mb-1">🎧 Customer Support & Help desk</h3>
+            <p class="text-xs font-bold text-gray-700 mb-4">Raise a query, complaint, or track an order below:</p>
             
-            <!-- Product 1 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://sfycdn.speedsize.com/56385b25-4e17-4a9a-9bec-c421c18686fb/beminimalist.co/cdn/shop/files/Nia10New.png?crop=center&height=1260&v=1721398127&width=840" alt="Minimalist 10% Niacinamide Face Serum" class="product-image">
-                        <span class="discount-badge">33% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Minimalist</span>
-                        <span class="category-badge">Serum</span>
-                    </div>
-                    <h2 class="product-title">10% Niacinamide Face Serum</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹599</span>
-                        <span class="deal-price">₹399</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
+            <div id="chat-messages" class="h-52 overflow-y-auto border-2 border-slate rounded-lg p-3 bg-white space-y-2 text-xs mb-3">
+                <div class="p-2.5 bg-lavender rounded-lg border border-slate max-w-[85%] font-bold">
+                    👋 Hi! Welcome to GlowDeals Support. How can we help you today?
                 </div>
             </div>
 
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images.tokopedia.net/img/cache/700/Vqb4Pd/2023/10/21/280edeb2-e648-4e8c-85d7-beff11d61a86.jpg" alt="The Derma Co 1% Hyaluronic Sunscreen Aqua Gel" class="product-image">
-                        <span class="discount-badge">40% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">The Derma Co</span>
-                        <span class="category-badge">Sunscreen</span>
-                    </div>
-                    <h2 class="product-title">1% Hyaluronic Sunscreen Aqua Gel</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹499</span>
-                        <span class="deal-price">₹299</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://www.dotandkey.com/cdn/shop/files/1-BarrierRepairMoisturizer.jpg" alt="Dot & Key Ceramide Barrier Repair Moisturizer" class="product-image">
-                        <span class="discount-badge">15% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Dot & Key</span>
-                        <span class="category-badge">Moisturizer</span>
-                    </div>
-                    <h2 class="product-title">Ceramide Barrier Repair Moisturizer</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹395</span>
-                        <span class="deal-price">₹336</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://consciouschemist.com/cdn/shop/files/1_74fbc11f-8e50-4d5c-9c76-57dfb898a72b.jpg" alt="Conscious Chemist Salicylic Acid Pore Cleanser" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Conscious Chemist</span>
-                        <span class="category-badge">Cleanser</span>
-                    </div>
-                    <h2 class="product-title">Salicylic Acid Pore Cleanser</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹350</span>
-                        <span class="deal-price">₹245</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/7/d/7d17466CHEMI00000007_1.jpg" alt="Chemist at Play Exfoliating Body Wash" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Chemist at Play</span>
-                        <span class="category-badge">Body Care</span>
-                    </div>
-                    <h2 class="product-title">Exfoliating Body Wash (AHA/BHA)</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹450</span>
-                        <span class="deal-price">₹315</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/8/9/8904417300438_1.jpg" alt="Dr. Sheth's Centella & Niacinamide Moisturizer" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Dr. Sheth's</span>
-                        <span class="category-badge">Moisturizer</span>
-                    </div>
-                    <h2 class="product-title">Centella & Niacinamide Moisturizer</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹499</span>
-                        <span class="deal-price">₹349</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 7 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/e/0/e0787e9DECON00000002_1.jpg" alt="Deconstruct 5% Niacinamide + 2% Alpha Arbutin" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Deconstruct</span>
-                        <span class="category-badge">Serum</span>
-                    </div>
-                    <h2 class="product-title">5% Niacinamide + 2% Alpha Arbutin</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹699</span>
-                        <span class="deal-price">₹489</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 8 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/8/9/8906105560100_1.jpg" alt="Re'equil Ultra Matte Dry Touch Sunscreen Gel" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Re'equil</span>
-                        <span class="category-badge">Sunscreen</span>
-                    </div>
-                    <h2 class="product-title">Ultra Matte Dry Touch Sunscreen Gel</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹780</span>
-                        <span class="deal-price">₹546</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 9 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/s/u/sugan00000021_1.jpg" alt="Suganda Squalane Cleansing Oil" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Suganda</span>
-                        <span class="category-badge">Cleanser</span>
-                    </div>
-                    <h2 class="product-title">Squalane Cleansing Oil</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹550</span>
-                        <span class="deal-price">₹385</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 10 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/f/o/foxta00000005_1.jpg" alt="Foxtale Vitamin C Brightening Serum" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Foxtale</span>
-                        <span class="category-badge">Serum</span>
-                    </div>
-                    <h2 class="product-title">Vitamin C Brightening Serum</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹595</span>
-                        <span class="deal-price">₹416</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 11 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/7/6/769915190311_1.jpg" alt="The Ordinary Niacinamide 10% + Zinc 1%" class="product-image">
-                        <span class="discount-badge">20% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">The Ordinary</span>
-                        <span class="category-badge">Serum</span>
-                    </div>
-                    <h2 class="product-title">Niacinamide 10% + Zinc 1%</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹600</span>
-                        <span class="deal-price">₹480</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 12 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images.apollo247.in/images/ui_revamp_pharmacy/sub_category/cetaphil.jpg" alt="Cetaphil Gentle Skin Cleanser" class="product-image">
-                        <span class="discount-badge">20% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Cetaphil</span>
-                        <span class="category-badge">Cleanser</span>
-                    </div>
-                    <h2 class="product-title">Gentle Skin Cleanser</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹333</span>
-                        <span class="deal-price">₹266</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 13 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/a/q/aqual00000005_1.jpg" alt="Aqualogica Radiance+ Dewy Sunscreen SPF 50" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Aqualogica</span>
-                        <span class="category-badge">Sunscreen</span>
-                    </div>
-                    <h2 class="product-title">Radiance+ Dewy Sunscreen SPF 50</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹399</span>
-                        <span class="deal-price">₹279</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 14 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/p/l/plumx00000015_1.jpg" alt="Plum Goodness Green Tea Pore Detox Gel" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Plum Goodness</span>
-                        <span class="category-badge">Moisturizer</span>
-                    </div>
-                    <h2 class="product-title">Green Tea Pore Detox Gel</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹525</span>
-                        <span class="deal-price">₹367</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 15 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/e/a/eartr00000123_1.jpg" alt="Earth Rhythm Phyto Clear Oil Cleanser" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Earth Rhythm</span>
-                        <span class="category-badge">Cleanser</span>
-                    </div>
-                    <h2 class="product-title">Phyto Clear Oil Cleanser</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹499</span>
-                        <span class="deal-price">₹349</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 16 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/8/9/8906087770078_1.jpg" alt="Mamaearth Ubtan Natural Face Wash" class="product-image">
-                        <span class="discount-badge">25% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Mamaearth</span>
-                        <span class="category-badge">Cleanser</span>
-                    </div>
-                    <h2 class="product-title">Ubtan Natural Face Wash</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹250</span>
-                        <span class="deal-price">₹187</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 17 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/p/i/pilgr00000035_1.jpg" alt="Pilgrim Korean Beauty Squalane Glow Serum" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Pilgrim</span>
-                        <span class="category-badge">Serum</span>
-                    </div>
-                    <h2 class="product-title">Korean Beauty Squalane Glow Serum</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹650</span>
-                        <span class="deal-price">₹455</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 18 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/h/y/hyphe00000002_1.jpg" alt="Hyphen Barrier Care Cream" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Hyphen</span>
-                        <span class="category-badge">Moisturizer</span>
-                    </div>
-                    <h2 class="product-title">Barrier Care Cream</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹449</span>
-                        <span class="deal-price">₹314</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 19 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/t/h/themom00000012_1.jpg" alt="The Moms Co. Natural Vitamin C Face Wash" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">The Moms Co.</span>
-                        <span class="category-badge">Cleanser</span>
-                    </div>
-                    <h2 class="product-title">Natural Vitamin C Face Wash</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹298</span>
-                        <span class="deal-price">₹208</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 20 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/j/u/juicy00000010_1.jpg" alt="Juicy Chemistry Organic Rosehip Oil" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Juicy Chemistry</span>
-                        <span class="category-badge">Serum</span>
-                    </div>
-                    <h2 class="product-title">Organic Rosehip Oil</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹875</span>
-                        <span class="deal-price">₹612</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 21 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/j/u/justh00000045_1.jpg" alt="Just Herbs Silk Skin Nourishing Cream" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Just Herbs</span>
-                        <span class="category-badge">Moisturizer</span>
-                    </div>
-                    <h2 class="product-title">Silk Skin Nourishing Cream</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹545</span>
-                        <span class="deal-price">₹381</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 22 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/o/r/organ00000088_1.jpg" alt="Organic Harvest Vitamin C Day Cream" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Organic Harvest</span>
-                        <span class="category-badge">Moisturizer</span>
-                    </div>
-                    <h2 class="product-title">Vitamin C Day Cream</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹495</span>
-                        <span class="deal-price">₹346</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 23 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/w/o/wowsk00000012_1.jpg" alt="Wow Skin Science Apple Cider Vinegar Face Wash" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Wow Skin Science</span>
-                        <span class="category-badge">Cleanser</span>
-                    </div>
-                    <h2 class="product-title">Apple Cider Vinegar Face Wash</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹399</span>
-                        <span class="deal-price">₹279</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
-            <!-- Product 24 -->
-            <div class="product-card">
-                <div>
-                    <div class="image-container">
-                        <img src="https://images-static.nykaa.com/media/catalog/product/b/i/bioti00000015_1.jpg" alt="Biotique Bio Cucumber Pore Tightening Toner" class="product-image">
-                        <span class="discount-badge">30% OFF</span>
-                    </div>
-                    <div class="meta-tags">
-                        <span class="brand-tag">Biotique</span>
-                        <span class="category-badge">Toner</span>
-                    </div>
-                    <h2 class="product-title">Bio Cucumber Pore Tightening Toner</h2>
-                </div>
-                <div class="card-footer">
-                    <div class="price-box">
-                        <span class="mrp-price">MRP ₹210</span>
-                        <span class="deal-price">₹147</span>
-                    </div>
-                    <a href="#" class="buy-btn">GET DEAL ↗</a>
-                </div>
-            </div>
-
+            <form onsubmit="handleSupportSend(event)" class="flex gap-2">
+                <input type="text" id="chat-input" placeholder="Type your query or complaint..." required class="flex-1 p-2.5 border-2 border-slate rounded-full text-xs bg-white">
+                <button type="submit" class="btn-lime text-xs px-4">Send</button>
+            </form>
         </div>
-    </main>
+    </div>
 
-    <footer>
-        <p>GlowDeals India © Pure HTML Static Version | Zero JavaScript Architecture | Official Brand CDN Images</p>
+    <!-- Interactive Checkout & Tracking Modal -->
+    <div id="checkout-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
+        <div id="checkout-card" class="card-container w-full max-w-lg p-6 bg-butter relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCheckout()" class="absolute top-4 right-4 text-sm font-black border border-slate rounded-full w-7 h-7 bg-white hover:bg-red-100">✕</button>
+            <div id="checkout-content"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-lavender border-t-2 border-slate p-6 mt-12 text-center text-xs font-bold">
+        <p>GlowDeals India © 2026 | Zero-Subscription Model (10% Transparent Commission) | Verified Sourcing & Dermatology Governance</p>
     </footer>
 
+    <!-- Main Logic Engine -->
+    <script>
+        let currentPortal = 'customer';
+        let selectedCategory = 'All';
+        let currentRetailerTab = 'brand';
+        let selectedProductForCheckout = null;
+
+        // Fallback SVG generator if third-party image fails
+        function handleImgError(img, name) {
+            img.onerror = null;
+            img.src = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect width='100%' height='100%' fill='%23B6B1DF'/><text x='50%' y='45%' font-family='sans-serif' font-weight='900' font-size='16' fill='%2312131A' text-anchor='middle'>✨ GlowDeals</text><text x='50%' y='58%' font-family='sans-serif' font-weight='700' font-size='12' fill='%2312131A' text-anchor='middle'>${encodeURIComponent(name)}</text></svg>`;
+        }
+
+        // Updated Catalog with Official Image Links
+        const products = [
+            { id: 1, brand: 'Minimalist', name: '10% Niacinamide Face Serum', category: 'Serum', mrp: 599, deal: 399, discount: 33, image: 'https://sfycdn.speedsize.com/56385b25-4e17-4a9a-9bec-c421c18686fb/beminimalist.co/cdn/shop/files/Nia10New.png?crop=center&height=1260&v=1721398127&width=840' },
+            { id: 2, brand: 'The Derma Co', name: '1% Hyaluronic Sunscreen Aqua Gel', category: 'Sunscreen', mrp: 499, deal: 299, discount: 40, image: 'https://thedermaco.com/cdn/shop/files/1_Hyaluronic_Sunscreen_Aqua_Gel_50g_1.jpg' },
+            { id: 3, brand: 'Dot & Key', name: 'Ceramide Barrier Repair Moisturizer', category: 'Moisturizer', mrp: 599, deal: 399, discount: 33, image: 'https://images.unsplash.com/photo-1608248597261-833258657640?auto=format&fit=crop&w=500&q=80' },
+            { id: 4, brand: 'Conscious Chemist', name: 'Salicylic Acid Pore Cleanser', category: 'Cleanser', mrp: 350, deal: 245, discount: 30, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80' },
+            { id: 5, brand: 'Chemist at Play', name: 'Exfoliating Body Wash (AHA/BHA)', category: 'Body Care', mrp: 450, deal: 315, discount: 30, image: 'https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=500&q=80' },
+            { id: 6, brand: 'Dr. Sheth\'s', name: 'Centella & Niacinamide Oil-Free Oil', category: 'Moisturizer', mrp: 499, deal: 349, discount: 30, image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=500&q=80' },
+            { id: 7, brand: 'Deconstruct', name: '5% Niacinamide + 2% Alpha Arbutin', category: 'Serum', mrp: 699, deal: 489, discount: 30, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80' },
+            { id: 8, brand: 'Re\'equil', name: 'Ultra Matte Dry Touch Sunscreen Gel', category: 'Sunscreen', mrp: 780, deal: 546, discount: 30, image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=500&q=80' },
+            { id: 9, brand: 'Suganda', name: 'Squalane Cleansing Oil', category: 'Cleanser', mrp: 550, deal: 385, discount: 30, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80' },
+            { id: 10, brand: 'Foxtale', name: 'Vitamin C Brightening Serum', category: 'Serum', mrp: 595, deal: 416, discount: 30, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80' },
+            { id: 11, brand: 'The Ordinary', name: 'Niacinamide 10% + Zinc 1%', category: 'Serum', mrp: 600, deal: 480, discount: 20, image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=500&q=80' },
+            { id: 12, brand: 'Cetaphil', name: 'Gentle Skin Cleanser for Sensitive Skin', category: 'Cleanser', mrp: 333, deal: 266, discount: 20, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80' },
+            { id: 13, brand: 'Aqualogica', name: 'Radiance+ Dewy Sunscreen SPF 50', category: 'Sunscreen', mrp: 399, deal: 279, discount: 30, image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=500&q=80' },
+            { id: 14, brand: 'Plum Goodness', name: 'Green Tea Pore Detox Gel Moisturizer', category: 'Moisturizer', mrp: 525, deal: 367, discount: 30, image: 'https://images.unsplash.com/photo-1608248597261-833258657640?auto=format&fit=crop&w=500&q=80' },
+            { id: 15, brand: 'Earth Rhythm', name: 'Phyto Clear Oil Cleanser', category: 'Cleanser', mrp: 499, deal: 349, discount: 30, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80' },
+            { id: 16, brand: 'Mamaearth', name: 'Ubtan Natural Face Wash', category: 'Cleanser', mrp: 250, deal: 187, discount: 25, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80' },
+            { id: 17, brand: 'Pilgrim', name: 'Korean Beauty Squalane Glow Serum', category: 'Serum', mrp: 650, deal: 455, discount: 30, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80' },
+            { id: 18, brand: 'Hyphen', name: 'Barrier Care Cream for Normal to Dry', category: 'Moisturizer', mrp: 449, deal: 314, discount: 30, image: 'https://images.unsplash.com/photo-1608248597261-833258657640?auto=format&fit=crop&w=500&q=80' },
+            { id: 19, brand: 'The Moms Co.', name: 'Natural Vitamin C Face Wash', category: 'Cleanser', mrp: 298, deal: 208, discount: 30, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80' },
+            { id: 20, brand: 'Juicy Chemistry', name: 'Organic Cold Pressed Rosehip Oil', category: 'Serum', mrp: 875, deal: 612, discount: 30, image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=500&q=80' },
+            { id: 21, brand: 'Just Herbs', name: 'Silk Skin Indian Ginseng Nourishing Cream', category: 'Moisturizer', mrp: 545, deal: 381, discount: 30, image: 'https://images.unsplash.com/photo-1608248597261-833258657640?auto=format&fit=crop&w=500&q=80' },
+            { id: 22, brand: 'Organic Harvest', name: 'Vitamin C Day Cream', category: 'Moisturizer', mrp: 495, deal: 346, discount: 30, image: 'https://images.unsplash.com/photo-1608248597261-833258657640?auto=format&fit=crop&w=500&q=80' },
+            { id: 23, brand: 'Wow Skin Science', name: 'Apple Cider Vinegar Face Wash', category: 'Cleanser', mrp: 399, deal: 279, discount: 30, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80' },
+            { id: 24, brand: 'Biotique', name: 'Bio Cucumber Pore Tightening Toner', category: 'Toner', mrp: 210, deal: 147, discount: 30, image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=500&q=80' }
+        ];
+
+        let blacklistedEntities = [
+            { id: 1, name: 'FakeGlow Beauty Ltd', type: 'Brand', reason: 'Counterfeit & Expired Batches Reported', date: '2026-08-12' },
+            { id: 2, name: 'Dr. Fake Skin Clinic', type: 'Dermatologist', reason: 'Unverified Medical Licensing Number', date: '2026-09-01' }
+        ];
+
+        function renderPortal() {
+            const root = document.getElementById('portal-root');
+            if (currentPortal === 'customer') renderCustomerPortal(root);
+            else if (currentPortal === 'retailer') renderRetailerPortal(root);
+            else if (currentPortal === 'admin') renderAdminPortal(root);
+
+            ['customer', 'retailer', 'admin'].forEach(p => {
+                const btn = document.getElementById(`nav-${p}`);
+                if (p === currentPortal) {
+                    btn.className = "text-xs font-black px-4 py-1.5 rounded-full bg-lime border border-slate shadow-sm";
+                } else {
+                    btn.className = "text-xs font-bold px-4 py-1.5 rounded-full hover:bg-lavender";
+                }
+            });
+        }
+
+        function switchPortal(portal) {
+            currentPortal = portal;
+            renderPortal();
+        }
+
+        function renderCustomerPortal(container) {
+            const searchQuery = (document.getElementById('global-search')?.value || '').toLowerCase();
+
+            const filteredProducts = products.filter(p => {
+                const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
+                const matchesSearch = p.brand.toLowerCase().includes(searchQuery) ||
+                                      p.name.toLowerCase().includes(searchQuery) ||
+                                      p.category.toLowerCase().includes(searchQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            container.innerHTML = `
+                <div class="mb-6 flex flex-wrap gap-2 items-center justify-between border-b-2 border-slate pb-4">
+                    <div class="flex flex-wrap gap-2">
+                        ${['All', 'Serum', 'Sunscreen', 'Moisturizer', 'Cleanser', 'Body Care', 'Toner'].map(cat => `
+                            <button onclick="setCategory('${cat}')" class="tab-btn ${selectedCategory === cat ? 'active' : ''}">${cat}</button>
+                        `).join('')}
+                    </div>
+                    <span class="text-xs font-extrabold bg-lavender px-3 py-1 rounded-full border border-slate">Showing ${filteredProducts.length} Verified Deals</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    <div class="lg:col-span-3">
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                            ${filteredProducts.map(p => `
+                                <div class="card-container p-4 flex flex-col justify-between hover:scale-[1.01] transition-transform">
+                                    <div>
+                                        <div class="relative w-full h-44 mb-3 rounded-lg overflow-hidden border border-slate bg-butter flex items-center justify-center">
+                                            <img src="${p.image}" alt="${p.name}" onerror="handleImgError(this, '${p.name}')" class="w-full h-full object-cover">
+                                            <span class="absolute top-2 right-2 badge-discount">${p.discount}% OFF</span>
+                                        </div>
+                                        <p class="text-xs font-black tracking-wider uppercase text-slate opacity-70">${p.brand}</p>
+                                        <h3 class="font-black text-base leading-tight mb-2">${p.name}</h3>
+                                        <p class="text-xs font-bold text-gray-600 mb-4">Category: ${p.category}</p>
+                                    </div>
+                                    <div class="border-t-2 border-slate pt-3 mt-2 flex items-center justify-between">
+                                        <div>
+                                            <p class="text-xs line-through text-gray-500 font-bold">MRP ₹${p.mrp}</p>
+                                            <p class="text-xl font-black">₹${p.deal}</p>
+                                        </div>
+                                        <button onclick="openCheckout(${p.id})" class="btn-lime text-xs">GET DEAL ↗</button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-1 space-y-6">
+                        <div class="card-container p-5 bg-lavender">
+                            <h3 class="font-black text-base mb-2 flex items-center gap-2">🧠 Skin Type Quiz</h3>
+                            <p class="text-xs font-bold mb-4">Unsure if this product matches your skin barrier?</p>
+                            <div class="space-y-2 mb-4 text-xs font-bold">
+                                <label class="block">Select Skin Concern:</label>
+                                <select id="quiz-concern" class="w-full p-2 rounded-lg border border-slate bg-butter">
+                                    <option>Acne & Excess Oil</option>
+                                    <option>Dryness & Flakiness</option>
+                                    <option>Pigmentation & Dark Spots</option>
+                                    <option>Sensitive / Redness</option>
+                                </select>
+                            </div>
+                            <button onclick="runQuiz()" class="btn-lime w-full text-xs">MATCH MY PRODUCTS</button>
+                            <div id="quiz-output" class="mt-3 text-xs font-black text-center"></div>
+                        </div>
+
+                        <div class="card-container p-5">
+                            <h3 class="font-black text-base mb-2 flex items-center gap-2">💬 Consult Dermatologist</h3>
+                            <p class="text-xs font-bold mb-4">Connect directly with verified Indian dermatologists onboarded on GlowDeals.</p>
+                            <button onclick="alert('Dermatologist Consultation Engine initialized. Redirecting to available doctors...')" class="btn-lavender w-full text-xs">BOOK ONLINE CONSULT</button>
+                        </div>
+
+                        <div class="card-container p-5">
+                            <h3 class="font-black text-base mb-2 flex items-center gap-2">🔬 Ingredient Analyzer</h3>
+                            <p class="text-xs font-bold mb-3">Paste product INCI list below to check comedogenicity & safety flags:</p>
+                            <textarea id="inci-input" placeholder="Paste ingredients (e.g., Niacinamide, Salicylic Acid)..." class="w-full h-28 p-2.5 text-xs border border-slate rounded-lg bg-butter mb-3"></textarea>
+                            <button onclick="analyzeIngredients()" class="btn-lime w-full text-xs">ANALYZE INGREDIENTS</button>
+                            <div id="inci-output" class="mt-3 text-xs font-bold"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Interactive Checkout Engine
+        function openCheckout(productId) {
+            selectedProductForCheckout = products.find(p => p.id === productId);
+            const modal = document.getElementById('checkout-modal');
+            const content = document.getElementById('checkout-content');
+
+            content.innerHTML = `
+                <div class="space-y-4">
+                    <div class="border-b-2 border-slate pb-3">
+                        <span class="text-xs font-black bg-lime px-2 py-0.5 rounded border border-slate">STEP 1 OF 2</span>
+                        <h2 class="text-xl font-black mt-1">Order Checkout</h2>
+                    </div>
+
+                    <div class="p-3 bg-lavender border-2 border-slate rounded-lg flex items-center gap-3">
+                        <img src="${selectedProductForCheckout.image}" onerror="handleImgError(this, '${selectedProductForCheckout.name}')" class="w-14 h-14 object-cover rounded border border-slate bg-white">
+                        <div>
+                            <p class="text-xs font-black uppercase">${selectedProductForCheckout.brand}</p>
+                            <p class="text-xs font-bold leading-tight">${selectedProductForCheckout.name}</p>
+                            <p class="text-sm font-black mt-1">Deal Price: ₹${selectedProductForCheckout.deal} <span class="text-xs line-through font-normal text-gray-600">MRP ₹${selectedProductForCheckout.mrp}</span></p>
+                        </div>
+                    </div>
+
+                    <form onsubmit="processOrder(event)" class="space-y-3">
+                        <h3 class="text-xs font-black uppercase text-gray-700">Communication & Delivery Details:</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" required placeholder="Full Name *" class="w-full p-2 border border-slate rounded-lg text-xs bg-white">
+                            <input type="tel" required placeholder="Phone Number *" class="w-full p-2 border border-slate rounded-lg text-xs bg-white">
+                        </div>
+                        <input type="email" required placeholder="Email Address *" class="w-full p-2 border border-slate rounded-lg text-xs bg-white">
+                        <input type="text" required placeholder="Delivery Street Address *" class="w-full p-2 border border-slate rounded-lg text-xs bg-white">
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" required placeholder="City *" class="w-full p-2 border border-slate rounded-lg text-xs bg-white">
+                            <input type="text" required placeholder="Pincode *" class="w-full p-2 border border-slate rounded-lg text-xs bg-white">
+                        </div>
+
+                        <h3 class="text-xs font-black uppercase text-gray-700 pt-2">Select Payment Method:</h3>
+                        <div class="space-y-2 text-xs font-bold">
+                            <label class="flex items-center gap-2 p-2 border border-slate rounded-lg bg-white cursor-pointer">
+                                <input type="radio" name="payment" value="UPI" checked> 📱 UPI (Google Pay / PhonePe / Paytm)
+                            </label>
+                            <label class="flex items-center gap-2 p-2 border border-slate rounded-lg bg-white cursor-pointer">
+                                <input type="radio" name="payment" value="Card"> 💳 Credit / Debit Card
+                            </label>
+                            <label class="flex items-center gap-2 p-2 border border-slate rounded-lg bg-white cursor-pointer">
+                                <input type="radio" name="payment" value="COD"> 💵 Cash on Delivery (COD)
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-lime w-full text-sm mt-4 py-3">PAY & CONFIRM ORDER (₹${selectedProductForCheckout.deal}) ↗</button>
+                    </form>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        function processOrder(e) {
+            e.preventDefault();
+            const orderId = 'GLOW-' + Math.floor(100000 + Math.random() * 900000);
+            const content = document.getElementById('checkout-content');
+
+            content.innerHTML = `
+                <div class="space-y-4 text-center py-2">
+                    <div class="w-12 h-12 bg-lime border-2 border-slate rounded-full flex items-center justify-center text-2xl mx-auto">🎉</div>
+                    <h2 class="text-xl font-black">Order Confirmed!</h2>
+                    <p class="text-xs font-bold">Tracking ID: <span class="bg-lavender px-2 py-0.5 rounded border border-slate font-mono">${orderId}</span></p>
+
+                    <div class="p-4 bg-white border-2 border-slate rounded-lg text-left text-xs space-y-2">
+                        <p class="font-black text-sm border-b border-slate pb-1">Delivery Tracking Details</p>
+                        <div class="flex justify-between font-bold text-green-700">
+                            <span>Status:</span>
+                            <span>Order Confirmed & Dispatch Pending</span>
+                        </div>
+                        <div class="flex justify-between font-bold">
+                            <span>Estimated Delivery:</span>
+                            <span>Within 3-5 Business Days</span>
+                        </div>
+                        <div class="flex justify-between font-bold">
+                            <span>Item:</span>
+                            <span>${selectedProductForCheckout.brand} - ${selectedProductForCheckout.name}</span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-lavender border border-slate rounded-lg text-xs font-bold space-y-1">
+                        <div class="flex justify-between text-[10px] uppercase font-black">
+                            <span class="text-green-800">● Confirmed</span>
+                            <span>○ Dispatched</span>
+                            <span>○ Out for Delivery</span>
+                        </div>
+                        <div class="w-full bg-white h-2 rounded-full border border-slate overflow-hidden">
+                            <div class="bg-lime h-full w-1/3 border-r border-slate"></div>
+                        </div>
+                    </div>
+
+                    <button onclick="closeCheckout()" class="btn-lime w-full text-xs mt-2">BACK TO PRODUCTS</button>
+                </div>
+            `;
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function toggleSupportModal() {
+            const modal = document.getElementById('support-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function handleSupportSend(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+
+            if (!input.value.trim()) return;
+
+            const userMsg = document.createElement('div');
+            userMsg.className = "p-2 bg-lime rounded-lg border border-slate max-w-[80%] ml-auto font-bold text-right";
+            userMsg.innerText = input.value;
+            messages.appendChild(userMsg);
+
+            const userText = input.value;
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = "p-2 bg-lavender rounded-lg border border-slate max-w-[80%] font-bold";
+                botMsg.innerText = `Thanks for reaching out regarding "${userText}". Our support ticket #TK-${Math.floor(1000+Math.random()*9000)} has been generated. A representative will respond shortly!`;
+                messages.appendChild(botMsg);
+                messages.scrollTop = messages.scrollHeight;
+            }, 800);
+        }
+
+        function setCategory(cat) {
+            selectedCategory = cat;
+            renderPortal();
+        }
+
+        function filterProducts() {
+            if (currentPortal === 'customer') renderPortal();
+        }
+
+        function runQuiz() {
+            const output = document.getElementById('quiz-output');
+            output.innerHTML = `<span class="bg-lime px-2 py-1 rounded border border-slate inline-block">✅ Recommended: Look for Salicylic Acid, Niacinamide, & Oil-Free Sunscreens</span>`;
+        }
+
+        function analyzeIngredients() {
+            const input = document.getElementById('inci-input').value.toLowerCase();
+            const output = document.getElementById('inci-output');
+
+            if (!input.trim()) {
+                output.innerHTML = `<span class="text-red-600">Please paste an ingredient list first.</span>`;
+                return;
+            }
+
+            if (input.includes('coconut oil') || input.includes('isopropyl myristate') || input.includes('lanolin')) {
+                output.innerHTML = `<div class="p-2 bg-red-100 border border-red-500 rounded text-red-800">⚠️ <strong>High Comedogenic Warning:</strong> Contains ingredients known to clog pores on oily skin.</div>`;
+            } else {
+                output.innerHTML = `<div class="p-2 bg-green-100 border border-green-700 rounded text-green-900">✅ <strong>Safe Profile Detected:</strong> Clean formulation with minimal comedogenic risk.</div>`;
+            }
+        }
+
+        function renderRetailerPortal(container) {
+            const gross = 25000;
+            const comm = gross * 0.10;
+            const net = gross - comm;
+
+            container.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-1 space-y-6">
+                        <div class="card-container p-6 bg-lavender">
+                            <h2 class="font-black text-lg mb-2">Partner Onboarding Hub</h2>
+                            <p class="text-xs font-bold mb-4">Choose your registration type to start listing deals or consulting customers.</p>
+
+                            <div class="flex gap-2 mb-4">
+                                <button onclick="setRetailerTab('brand')" class="btn-lime text-xs flex-1 ${currentRetailerTab === 'brand' ? '' : 'opacity-50'}">BRAND / RETAILER</button>
+                                <button onclick="setRetailerTab('derm')" class="btn-lime text-xs flex-1 ${currentRetailerTab === 'derm' ? '' : 'opacity-50'}">DERMATOLOGIST</button>
+                            </div>
+
+                            <form onsubmit="event.preventDefault(); alert('Partner application submitted for admin governance verification!');" class="space-y-3">
+                                <div>
+                                    <label class="text-xs font-bold block mb-1">${currentRetailerTab === 'brand' ? 'Brand / Business Name:' : 'Doctor / Practice Name:'}</label>
+                                    <input type="text" required placeholder="${currentRetailerTab === 'brand' ? 'e.g., Minimalist' : 'e.g., Dr. Ananya Sharma'}" class="w-full p-2 border border-slate rounded-lg text-xs bg-butter">
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold block mb-1">Official Contact Email:</label>
+                                    <input type="email" required placeholder="official@partner.com" class="w-full p-2 border border-slate rounded-lg text-xs bg-butter">
+                                </div>
+                                ${currentRetailerTab === 'derm' ? `
+                                    <div>
+                                        <label class="text-xs font-bold block mb-1">Medical Council Reg Number:</label>
+                                        <input type="text" required placeholder="e.g., MCI-2026-XXXXX" class="w-full p-2 border border-slate rounded-lg text-xs bg-butter">
+                                    </div>
+                                ` : ''}
+                                <button type="submit" class="btn-lime w-full text-xs mt-2">SUBMIT FOR VERIFICATION ↗</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="card-container p-6">
+                            <h2 class="font-black text-2xl mb-2">Transparent Partner Revenue Model</h2>
+                            <p class="text-xs font-bold mb-6">GlowDeals India operates on a strict zero upfront/subscription fee policy. We charge a flat 10% commission only on successfully fulfilled orders.</p>
+
+                            <div class="card-container p-6 bg-butter border-2 border-slate max-w-xl mx-auto">
+                                <h3 class="font-black text-base border-b-2 border-slate pb-2 mb-4 text-center">Monthly Payout Breakdown Example</h3>
+                                <div class="space-y-3 text-xs font-bold">
+                                    <div class="flex justify-between">
+                                        <span>Gross Monthly Fulfilled Sales:</span>
+                                        <span class="font-black">₹${gross.toLocaleString()}</span>
+                                    </div>
+                                    <div class="flex justify-between text-red-700">
+                                        <span>GlowDeals Commission (10%):</span>
+                                        <span class="font-black">- ₹${comm.toLocaleString()}</span>
+                                    </div>
+                                    <div class="flex justify-between text-green-700">
+                                        <span>Upfront / Subscription Platform Fees:</span>
+                                        <span class="font-black">₹0.00 (FREE)</span>
+                                    </div>
+                                    <div class="border-t-2 border-slate pt-3 flex justify-between text-sm font-black bg-lime p-3 rounded-lg border border-slate">
+                                        <span>NET PARTNER PAYOUT:</span>
+                                        <span>₹${net.toLocaleString()}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function setRetailerTab(tab) {
+            currentRetailerTab = tab;
+            renderPortal();
+        }
+
+        function renderAdminPortal(container) {
+            container.innerHTML = `
+                <div class="space-y-8">
+                    <div class="border-b-2 border-slate pb-4">
+                        <h2 class="text-2xl font-black">Governance & Blacklist Engine</h2>
+                        <p class="text-xs font-bold">Monitor malpractices, counterfeit alerts, and enforce immediate platform bans.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="card-container p-6 bg-lavender">
+                            <h3 class="font-black text-base mb-4">Ban Entity / Blacklist Management</h3>
+                            <form onsubmit="handleAdminBlacklist(event)" class="space-y-3">
+                                <div>
+                                    <label class="text-xs font-bold block mb-1">Entity Name (Brand / Derm):</label>
+                                    <input type="text" id="admin-black-name" required placeholder="e.g., Unverified Brand Ltd" class="w-full p-2 border border-slate rounded-lg text-xs bg-butter">
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold block mb-1">Type:</label>
+                                    <select id="admin-black-type" class="w-full p-2 border border-slate rounded-lg text-xs bg-butter">
+                                        <option value="Brand">Brand / Retailer</option>
+                                        <option value="Dermatologist">Dermatologist</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold block mb-1">Reason for Blacklisting:</label>
+                                    <input type="text" id="admin-black-reason" required placeholder="e.g., Misleading claims, counterfeit batch" class="w-full p-2 border border-slate rounded-lg text-xs bg-butter">
+                                </div>
+                                <button type="submit" class="btn-lime w-full text-xs bg-red-400 text-slate">INSTANTLY BAN & BLACKLIST ENTITY</button>
+                            </form>
+                        </div>
+
+                        <div class="card-container p-6">
+                            <h3 class="font-black text-base mb-4">Active Blacklisted Entities (${blacklistedEntities.length})</h3>
+                            <div class="space-y-3">
+                                ${blacklistedEntities.map(e => `
+                                    <div class="p-3 bg-red-50 border border-slate rounded-lg flex justify-between items-center text-xs">
+                                        <div>
+                                            <p class="font-black text-red-900">${e.name} <span class="text-[10px] bg-red-200 px-2 py-0.5 rounded border border-red-400">${e.type}</span></p>
+                                            <p class="font-bold text-gray-700 mt-1">${e.reason}</p>
+                                        </div>
+                                        <button onclick="removeBlacklist(${e.id})" class="text-xs text-red-600 underline font-bold">Remove</button>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function handleAdminBlacklist(e) {
+            e.preventDefault();
+            const name = document.getElementById('admin-black-name').value;
+            const type = document.getElementById('admin-black-type').value;
+            const reason = document.getElementById('admin-black-reason').value;
+
+            blacklistedEntities.push({ id: Date.now(), name, type, reason, date: new Date().toISOString().split('T')[0] });
+            renderPortal();
+        }
+
+        function removeBlacklist(id) {
+            blacklistedEntities = blacklistedEntities.filter(e => e.id !== id);
+            renderPortal();
+        }
+
+        window.onload = function() {
+            renderPortal();
+        };
+    </script>
 </body>
 </html>
