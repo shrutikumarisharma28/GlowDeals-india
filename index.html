@@ -165,16 +165,16 @@
         let currentRetailerTab = 'brand';
         let selectedProductForCheckout = null;
 
-        // Fallback SVG generator if third-party image fails
+        // Dynamic SVG Fallback Generator
         function handleImgError(img, name) {
             img.onerror = null;
             img.src = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect width='100%' height='100%' fill='%23B6B1DF'/><text x='50%' y='45%' font-family='sans-serif' font-weight='900' font-size='16' fill='%2312131A' text-anchor='middle'>✨ GlowDeals</text><text x='50%' y='58%' font-family='sans-serif' font-weight='700' font-size='12' fill='%2312131A' text-anchor='middle'>${encodeURIComponent(name)}</text></svg>`;
         }
 
-        // Updated Catalog with Official Image Links
+        // Updated 24-Product Catalog with your exact provided CDN URLs for #1 and #2
         const products = [
-            { id: 1, brand: 'Minimalist', name: '10% Niacinamide Face Serum', category: 'Serum', mrp: 599, deal: 399, discount: 33, image: 'https://sfycdn.speedsize.com/56385b25-4e17-4a9a-9bec-c421c18686fb/beminimalist.co/cdn/shop/files/Nia10New.png?crop=center&height=1260&v=1721398127&width=840' },
-            { id: 2, brand: 'The Derma Co', name: '1% Hyaluronic Sunscreen Aqua Gel', category: 'Sunscreen', mrp: 499, deal: 299, discount: 40, image: 'https://thedermaco.com/cdn/shop/files/1_Hyaluronic_Sunscreen_Aqua_Gel_50g_1.jpg' },
+            { id: 1, brand: 'Minimalist', name: '10% Niacinamide Face Serum', category: 'Serum', mrp: 599, deal: 399, discount: 33, image: 'https://sfycdn.speedsize.com/56385b25-4e17-4a9a-9bec-c421c18686fb/beminimalist.co/cdn/shop/files/Nia10New.png?crop=center&height=960&v=1721398127&width=640' },
+            { id: 2, brand: 'The Derma Co', name: '1% Hyaluronic Sunscreen Aqua Gel', category: 'Sunscreen', mrp: 499, deal: 299, discount: 40, image: 'https://thedermaco.com/cdn/shop/files/1_PDP_79def908-1a95-443e-a7c9-d8dcd2c9ae41.jpg?v=1787037417&width=990' },
             { id: 3, brand: 'Dot & Key', name: 'Ceramide Barrier Repair Moisturizer', category: 'Moisturizer', mrp: 599, deal: 399, discount: 33, image: 'https://images.unsplash.com/photo-1608248597261-833258657640?auto=format&fit=crop&w=500&q=80' },
             { id: 4, brand: 'Conscious Chemist', name: 'Salicylic Acid Pore Cleanser', category: 'Cleanser', mrp: 350, deal: 245, discount: 30, image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80' },
             { id: 5, brand: 'Chemist at Play', name: 'Exfoliating Body Wash (AHA/BHA)', category: 'Body Care', mrp: 450, deal: 315, discount: 30, image: 'https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=500&q=80' },
